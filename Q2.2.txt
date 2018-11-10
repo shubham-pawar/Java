@@ -1,0 +1,116 @@
+
+-------------------------------TestComp.java---------------------------------
+import java.util.Random;
+public class TestComp {
+
+	public static void main(String[] args) {
+		Compartment arr[]=new Compartment[10];
+		Random rand = new Random(); 
+		for(int i=0;i<10;i++) {
+			
+			int n = rand.nextInt(3);
+			if(n==0)
+			{
+				arr[i]=new FirstClass();
+			}
+			else if(n==1)
+			{
+				arr[i]=new General();
+			}
+			else if(n==2)
+			{
+				arr[i]=new Luggage();
+			
+			}
+			else if(n==3)
+			{
+				arr[i]=new Ladies();
+			
+			}
+		}
+			
+			
+			for(int i=0;i<10;i++)
+			{
+				if(arr[i] instanceof FirstClass)
+				{
+					
+					FirstClass m=(FirstClass)arr[i];
+					
+					m.notice();
+					
+				}
+				if(arr[i] instanceof Ladies)
+				{
+					
+					Ladies m=(Ladies)arr[i];
+					m.notice();
+				}
+				if(arr[i] instanceof Luggage)
+				{
+					Luggage m=(Luggage)arr[i];
+					m.notice();
+				}
+				if(arr[i] instanceof General)
+				{
+					General m=(General)arr[i];
+					m.notice();
+				}
+			}
+	}
+
+}
+
+-----------------------------Compartment---------------------------------------
+
+
+public abstract class Compartment {
+	public abstract void notice();
+
+}
+
+----------------------------General---------------------------------------------
+
+public class General extends Compartment {
+
+	@Override
+	public void notice() {
+		System.out.println("This is General Class");
+
+	}
+
+}
+
+---------------------------FirstClass-------------------------------------------
+
+public class FirstClass extends Compartment {
+	
+	public void notice() {
+		System.out.println("This is First Class");
+	}
+}
+------------------------------Ladies--------------------------------------------
+
+
+public class Ladies extends Compartment {
+
+	@Override
+	public void notice() {
+
+		System.out.println("This is Ladies Class");
+
+	}
+
+}
+------------------------------Luggage-----------------------------------------------
+
+public class Luggage extends Compartment {
+
+	@Override
+	public void notice() {
+
+		System.out.println("This is Luggage Class");
+
+	}
+
+}

@@ -1,0 +1,114 @@
+------------------------TestMed.java................................
+import java.util.Scanner;
+
+public class TestMed {
+
+public static void main(String[] args) {
+		
+		Medicine arr[]=new Medicine[10];
+		Scanner sc=new Scanner(System.in);
+		for(int i=0;i<10;i++)
+		{
+			System.out.println("What do you want to buy?\n1.Tablet\n2.Ointment\n3.Syrup");
+			byte n=sc.nextByte();
+			if(n==1)
+			{
+				arr[i]=new Tablet();
+			}
+			else if(n==2)
+			{
+				arr[i]=new Ointment();
+			}
+			else if(n==3)
+			{
+				arr[i]=new Syrup();
+			
+			}
+			else
+				System.out.println("INVALID INPUT");
+			
+			
+			
+		}
+		System.out.println("---OUTPUT----");
+		for(int i=0;i<10;i++)
+		{
+			arr[i].displayLabel();
+		}
+		
+
+	}
+	
+	public static void display(Medicine o)
+	{
+	
+				
+		if(o instanceof Ointment)
+		{
+			
+			Ointment m=(Ointment)o;
+			System.out.println(m);
+			m.displayLabel();
+			
+		}
+		if(o instanceof Tablet)
+		{
+			
+			Tablet m=(Tablet)o;
+			m.displayLabel();
+		}
+		if(o instanceof Syrup)
+		{
+			Syrup m=(Syrup)o;
+			m.displayLabel();
+		}
+	
+	}
+
+}
+
+----------------------------Medicine.java---------------------------------------
+
+public class Medicine {
+
+	public String displayLabel() {
+		System.out.println("Name: PHARMA ABC .INC\nAddress: CITY,ROad,ETC");
+		return null;
+	}
+}
+
+-----------------------------Tablet--------------------------------------
+
+public class Tablet extends Medicine {
+	public String displayLabel() {
+		super.displayLabel();
+		System.out.println("for external use only");
+		return null;
+		
+	}
+}
+
+------------------------------Syrup--------------------------------------
+
+
+public class Syrup extends Medicine {
+	public  String displayLabel() {
+		super.displayLabel();
+		System.out.println("drink regularly");
+		return null;
+		
+	}
+}
+
+--------------------------Ointment-------------------------------------
+
+
+public class Ointment extends Medicine {
+	public String displayLabel() {
+		super.displayLabel();
+		System.out.println("store in cool cool dry place");
+		return null;
+		
+	}
+
+}

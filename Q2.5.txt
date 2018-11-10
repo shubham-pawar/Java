@@ -1,0 +1,44 @@
+public class TestCar{
+    public static void main(String args[]){
+     
+        SportCar sc = new SportCar();
+         sc.drive();
+         sc.airballontype();
+         sc.display();
+    }
+    }
+--------------------------------Car.java------------------------
+
+public class Car {
+    private int speed;
+    private int noofgear;
+   
+      void drive(){
+       speed = 300;
+       noofgear = 5;
+ }   
+    void display(){
+        
+     System.out.println("Speed of car is "+speed+" KMPH");
+     System.out.println("No of gears are "+noofgear);
+ }
+    
+}
+
+-------------------------------SportCar.java------------------------
+
+class SportCar extends Car{
+    private int initspeed;
+    private int gearstatus;
+   public void airballontype(){
+       initspeed=100;
+       gearstatus = 3;
+   }   
+    
+    void display(){
+        super.display();
+        System.out.println("Starting speed of car is "+initspeed);
+        System.out.println("No of gears are "+gearstatus);
+    }
+
+}
